@@ -7,7 +7,7 @@ colours = ['Red','Blue','Green','Pink','Black',
         'Yellow','Orange','White','Purple','Brown','grey'] 
 score = 0
 
-# the game time left, initially 30 seconds. 
+# the game time left, initially 60 seconds. 
 timeleft = 60
 
 # function that will start the game. 
@@ -81,33 +81,34 @@ def countdown():
 root = tkinter.Tk() 
 
 # set the title 
-root.title("ColorGameForLinux!") 
+root.title("ColorGameForLinux 3.0!") 
 
 # set the size 
 root.geometry("600x200")
 
 #Cant maximise the software!
 root.resizable(0,0)
+root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 
 # add an instructions label 
 instructions = tkinter.Label(root, text = "Type in the colour "
                         "of the words but not the text that says the color!", 
-                                    font = ('Roboto', 12)) 
+                                    font = ('Ubuntu', 12)) 
 instructions.pack() 
 
 # add a score label 
 scoreLabel = tkinter.Label(root, text = "Press enter to start", 
-                                    font = ('Roboto', 12)) 
+                                    font = ('Ubuntu', 12)) 
 scoreLabel.pack() 
 
 # add a time left label 
 timeLabel = tkinter.Label(root, text = "Time left: " +
-            str(timeleft), font = ('Roboto', 12)) 
+            str(timeleft), font = ('Ubuntu', 12)) 
                 
 timeLabel.pack() 
 
 # add a label for displaying the colours 
-label = tkinter.Label(root, font = ('Roboto', 60)) 
+label = tkinter.Label(root, font = ('Ubuntu', 60)) 
 label.pack() 
 
 # add a text entry box for 
