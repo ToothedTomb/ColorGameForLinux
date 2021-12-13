@@ -81,7 +81,7 @@ def countdown():
 root = tkinter.Tk() 
 
 # set the title 
-root.title("ColorGameForLinux 3.0!") 
+root.title("ColorGameForLinux 4.0!") 
 
 # set the size 
 root.geometry("600x200")
