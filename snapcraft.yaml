@@ -1,0 +1,22 @@
+name: yt-dlp
+summary: A fork of youtube-dl with additional features and patches
+description: |
+      Download and play videos on your local system. Runs from the command 
+      line and with all the features and patches of youtube-dlc in addition
+      to the latest youtube-dl.
+version: git
+grade: stable
+confinement: devmode
+base: core20
+architectures:
+  - build-on: [arm64, armhf, amd64]
+
+apps:
+  yt-dlp:
+    command: bin/yt-dlp
+    plugs: [home, network, network-bind, removable-media]
+
+parts:
+  yt-dlp:
+    plugin: python
+    source: https://github.com/yt-dlp/yt-dlp.git
