@@ -6,7 +6,6 @@ description: |
       to the latest youtube-dl.
 version: git
 grade: stable
-confinement: devmode
 base: core20
 architectures:
   - build-on: [arm64, armhf, amd64]
