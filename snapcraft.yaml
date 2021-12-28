@@ -1,4 +1,4 @@
-name: ColorGameForLinux
+name: colorgameforlinux
 summary: A fork of youtube-dl with additional features and patches
 description: |
       Download and play videos on your local system. Runs from the command 
