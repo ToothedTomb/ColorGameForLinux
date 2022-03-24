@@ -1,0 +1,15 @@
+name: ColorGameForLinux
+base: core18
+version: '5.0'
+summary: ColorGameForLinux!
+description: |
+  GNU hello prints a friendly greeting.
+grade: stable
+confinement: strict
+apps:
+  hello:
+    command: bin/Code.py
+parts:
+  gnu-hello:
+    source: https://github.com/ToothedTomb/ColorGameForLinux
+    plugin: autotools
