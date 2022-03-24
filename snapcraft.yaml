@@ -8,7 +8,7 @@ grade: stable
 confinement: strict
 apps:
   hello:
-    command: bin/Code.py
+    command: Code.py
 parts:
   gnu-hello:
     source: https://github.com/ToothedTomb/ColorGameForLinux
