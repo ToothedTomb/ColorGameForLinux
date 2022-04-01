@@ -1,11 +1,13 @@
 # import the modules 
 import tkinter
 from tkinter import CENTER, ttk, messagebox
+from tkinter import Tk, Label, Button
 import tkinter.messagebox
 import random 
 import os
 from tkinter.ttk import *
 import tkinter as tk
+import sys
 
 
 # list of possible colour. 
@@ -59,7 +61,7 @@ def nextColour():
         label.config(fg = str(colours[1]), text = str(colours[0])) 
         
         # update the score. 
-        scoreLabel.config(text = "Score: " + str(score)) 
+        scoreLabel.config(text = "Points: " + str(score)) 
 
 
 # Countdown timer function 
@@ -87,20 +89,14 @@ def countdown():
 root = tkinter.Tk() 
 
 # set the title 
-root.title("ColorGameForLinux 6.0! Free game for Linux.") 
+root.title("ColorGameForLinux 7.0! Game made by Jonathan Steadman!") 
 
 # set the size 
-root.geometry("610x420")
+root.geometry("610x380")
 #Cant maximise the software!
 root.resizable(0,0)
 root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 style = Style()
- 
-style.configure('TButton', font =
-               ('Ubuntu', 10),
-                    borderwidth = '5')
-style.map('TButton', foreground = [('active', '!disabled', 'black')],
-                     background = [('active', 'pink')])
 # add an instructions label 
 instructions = tkinter.Label(root, text = "Type in the color "
                         "of the words but not the text that says what the color is!", 
@@ -134,20 +130,15 @@ e.pack()
 
 # set focus on the entry box 
 e.focus_set()
-def onClick():
-    tkinter.messagebox.showinfo("13th of August of 2022!","I feel like that this project is now completed and no longer want to update. So the next version (7.0) will be the last.")
-Linux = tkinter.Button(root,text = "End of life date:", command = onClick)
-Linux.pack(side=tk.LEFT)
-Linux.pack(pady=30) 
-Linux.place(relx=0.5, rely=0.90,anchor=CENTER)
-
-def onClick2():
-    tkinter.messagebox.showinfo("ColorGameForLinux 6.0!","The creator of this game is Jonathan Steadman!")
-Tbutton = tkinter.Button(root,text = "Who made this game?", command = onClick2)
-Tbutton.pack(side=tk.LEFT)
-Tbutton.place(relx=0.5, rely=0.5, anchor=CENTER)
-
-Tbutton.pack(pady=30)
 # Reset the game:
+def restart():
+    """Restarts the current program.
+    Note: this function does not return. Any cleanup action (like
+    saving data) must be done before calling this function."""
+    python = sys.executable
+    os.execl(python, python, * sys.argv)  
+Tbutton = tkinter.Button(root,text = "Restart the game!",font="ubuntu",activebackground='pink', command = restart)
+Tbutton.pack(side=tk.LEFT)
+Tbutton.place(relx=0.5, rely=0.9, anchor=CENTER)
 # start the GUI 
 root.mainloop() 
