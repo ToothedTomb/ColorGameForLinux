@@ -6,4 +6,4 @@ Note: This game is free and open-source!
 Credits:
 Jonathan Steadman - Did everything lol.
 End of life: 13th of August 2022.
-![Screenshot from 2022-04-01 22-27-31](https://user-images.githubusercontent.com/52569279/161343840-3868678f-fbf9-4580-8ca5-f1d59bc60e72.png)
+![Screenshot from 2022-04-06 15-05-01](https://user-images.githubusercontent.com/52569279/161994709-3b199dc5-9508-4004-a9ae-7d5e60f56ab3.png)
