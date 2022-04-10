@@ -12,16 +12,16 @@ import sys
 
 # list of possible colour. 
 colours = ['Red','Blue','Green','Pink','Black', 
-        'Yellow','Orange','White','Purple','Brown','grey'] 
+        'Yellow','Orange','White','Purple','Brown','Grey'] 
 score = 0
 
 # the game time left, initially 60 seconds. 
-timeleft = 90
+timeleft = 60
 
 # function that will start the game. 
 def startGame(event): 
     
-    if timeleft == 90: 
+    if timeleft == 60: 
         
         # start the countdown timer. 
         countdown() 
@@ -60,7 +60,7 @@ def nextColour():
         # text _and_ the colour to a random colour value 
         label.config(fg = str(colours[1]), text = str(colours[0])) 
         
-        # update the score. 
+        # update the points. 
         scoreLabel.config(text = "Points: " + str(score)) 
 
 
@@ -89,38 +89,36 @@ def countdown():
 root = tkinter.Tk() 
 
 # set the title 
-root.title("ColorGameForLinux 8.0! Game made by Jonathan Steadman!") 
+root.title("ColorGameForLinux 9.0! Game made by Jonathan Steadman!") 
 
 # set the size 
-root.geometry("610x380")
+root.geometry("720x540")
 #Cant maximise the software!
 root.resizable(0,0)
 root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 style = Style()
-# add an instructions label 
-instructions = tkinter.Label(root, text = "Type in the color "
-                        "of the words but not the text that says what the color is!", 
-                                    font = ('Ubuntu', 12)) 
-instructions.pack() 
-
-# add a score label 
-scoreLabel = tkinter.Label(root, text = "Press enter to start", 
-                                    font = ('Ubuntu', 18)) 
-scoreLabel.pack() 
-
+Help = tkinter.Label(root, text = "ColorGameForLinux 9.0!", font = ('Ubuntu', 18,"bold","underline")) 
+                
+Help.pack() 
 # add a time left label 
-timeLabel = tkinter.Label(root, text = "Time left: " +
-            str(timeleft), font = ('Ubuntu', 18)) 
+timeLabel = tkinter.Label(root, text = "Time left " +
+            str(timeleft), font = ('Ubuntu', 28)) 
                 
 timeLabel.pack() 
+# add a score label 
+scoreLabel = tkinter.Label(root, text = "Press enter to start:", 
+                                    font = ('Ubuntu', 28)) 
+scoreLabel.pack() 
+
+
 
 # add a label for displaying the colours 
-label = tkinter.Label(root, font = ('Ubuntu', 120)) 
+label = tkinter.Label(root, font = ('Ubuntu', 170)) 
 label.pack() 
 
 # add a text entry box for 
 # typing in colours 
-e = tkinter.Entry(root,font= ("Ubuntu", 19)) 
+e = tkinter.Entry(root,font= ("Ubuntu", 28)) 
 
 # run the 'startGame' function 
 # when the enter key is pressed 
@@ -137,7 +135,7 @@ def restart():
     saving data) must be done before calling this function."""
     python = sys.executable
     os.execl(python, python, * sys.argv)  
-Tbutton = tkinter.Button(root,text = "Restart the game!",font="ubuntu",activebackground='pink', command = restart)
+Tbutton = tkinter.Button(root,text = "Restart The Game.",font=("ubuntu",28),activebackground='#23d18b', command = restart)
 Tbutton.pack(side=tk.LEFT)
 Tbutton.place(relx=0.5, rely=0.9, anchor=CENTER)
 # start the GUI 
