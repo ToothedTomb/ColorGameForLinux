@@ -92,7 +92,7 @@ root = tkinter.Tk()
 root.title("ColorGameForLinux 9.0! Game made by Jonathan Steadman!") 
 
 # set the size 
-root.geometry("720x540")
+root.geometry("820x540")
 #Cant maximise the software!
 root.resizable(0,0)
 root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
