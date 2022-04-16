@@ -89,15 +89,15 @@ def countdown():
 root = tkinter.Tk() 
 
 # set the title 
-root.title("ColorGameForLinux 9.0! Game made by Jonathan Steadman!") 
+root.title("Color Game For Linux 10.0!") 
 
 # set the size 
-root.geometry("820x540")
+root.geometry("820x640")
 #Cant maximise the software!
 root.resizable(0,0)
 root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 style = Style()
-Help = tkinter.Label(root, text = "ColorGameForLinux 9.0!", font = ('Ubuntu', 18,"bold","underline")) 
+Help = tkinter.Label(root, text = "Color Game For Linux 10.0!", font = ('Ubuntu', 24,"bold","underline")) 
                 
 Help.pack() 
 # add a time left label 
@@ -134,9 +134,16 @@ def restart():
     Note: this function does not return. Any cleanup action (like
     saving data) must be done before calling this function."""
     python = sys.executable
-    os.execl(python, python, * sys.argv)  
-Tbutton = tkinter.Button(root,text = "Restart The Game.",font=("ubuntu",28),activebackground='#23d18b', command = restart)
+    os.execl(python, python, * sys.argv)
+
+def howtoplay():
+    tkinter.messagebox.showinfo("How to play?",  "You will need to type down the color of the text. Not what the text says what the color is. You will need to be fast to get more points but needs to be written correctly and the right color. Press the enter key to submit you answer.") 
+Tbutton = tkinter.Button(root,text = "Restart The Game.",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = restart)
 Tbutton.pack(side=tk.LEFT)
 Tbutton.place(relx=0.5, rely=0.9, anchor=CENTER)
+qbutton = tkinter.Button(root,text = "How to play?",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = howtoplay)
+qbutton.pack(side=tk.LEFT)
+qbutton.place(relx=0.5, rely=0.8, anchor=CENTER)
 # start the GUI 
+
 root.mainloop() 
