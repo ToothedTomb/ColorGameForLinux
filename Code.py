@@ -8,20 +8,23 @@ import os
 from tkinter.ttk import *
 import tkinter as tk
 import sys
+from PIL import ImageTk, Image
+
+
 
 
 # list of possible colour. 
 colours = ['Red','Blue','Green','Pink','Black', 
         'Yellow','Orange','White','Purple','Brown','Grey'] 
-score = 0
+score = 1
 
-# the game time left, initially 60 seconds. 
-timeleft = 60
+# the game time left, initially 90 seconds. 
+timeleft = 90
 
 # function that will start the game. 
 def startGame(event): 
     
-    if timeleft == 60: 
+    if timeleft == 90: 
         
         # start the countdown timer. 
         countdown() 
@@ -50,6 +53,8 @@ def nextColour():
         if e.get().lower() == colours[1].lower(): 
             
             score += 1
+        else:
+            score -= 1
 
         # clear the text entry box. 
         e.delete(0, tkinter.END) 
@@ -89,15 +94,15 @@ def countdown():
 root = tkinter.Tk() 
 
 # set the title 
-root.title("Color Game For Linux 10.0!") 
+root.title("Color Game For Linux 11.0!") 
+root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 
 # set the size 
 root.geometry("820x640")
 #Cant maximise the software!
 root.resizable(0,0)
-root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 style = Style()
-Help = tkinter.Label(root, text = "Color Game For Linux 10.0!", font = ('Ubuntu', 24,"bold","underline")) 
+Help = tkinter.Label(root, text = "Color Game For Linux 11.0!", font = ('Ubuntu', 24,"bold","underline")) 
                 
 Help.pack() 
 # add a time left label 
@@ -137,7 +142,28 @@ def restart():
     os.execl(python, python, * sys.argv)
 
 def howtoplay():
-    tkinter.messagebox.showinfo("How to play?",  "You will need to type down the color of the text. Not what the text says what the color is. You will need to be fast to get more points but needs to be written correctly and the right color. Press the enter key to submit you answer.") 
+    root = tkinter.Tk() 
+    root.resizable(0,0)
+    root.title("Color Game For Linux: How to play:")
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="How to play this game?")
+    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="You will need to type down the color of the text. Not what the text says what the color is.")
+    label3 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="You will need to be fast to get more points but needs to be written correctly and the right color.")
+    labelw = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="You will lose one point if you make a mistake.")
+    label4 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="Press the enter key to submit you answer.")
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    label3.pack(side="top", fill="x", pady=3)
+    labelw.pack(side="top",fill="x",pady=4)
+    label4.pack(side="top",fill="x", pady=5)
+
+
+    B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
+    B1.pack()
+
+
+
+
 Tbutton = tkinter.Button(root,text = "Restart The Game.",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = restart)
 Tbutton.pack(side=tk.LEFT)
 Tbutton.place(relx=0.5, rely=0.9, anchor=CENTER)
