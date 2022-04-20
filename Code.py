@@ -8,6 +8,7 @@ import os
 from tkinter.ttk import *
 import tkinter as tk
 import sys
+from PIL import ImageTk, Image
 
 
 
@@ -93,7 +94,7 @@ def countdown():
 root = tkinter.Tk() 
 
 # set the title 
-root.title("Color Game For FreeBSD 5.0!") 
+root.title("Color Game For Linux 11.0!") 
 root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 
 # set the size 
@@ -101,7 +102,7 @@ root.geometry("820x640")
 #Cant maximise the software!
 root.resizable(0,0)
 style = Style()
-Help = tkinter.Label(root, text = "Color Game For FreeBSD 5.0!", font = ('Ubuntu', 24,"bold","underline")) 
+Help = tkinter.Label(root, text = "Color Game For Linux 11.0!", font = ('Ubuntu', 24,"bold","underline")) 
                 
 Help.pack() 
 # add a time left label 
@@ -143,7 +144,7 @@ def restart():
 def howtoplay():
     root = tkinter.Tk() 
     root.resizable(0,0)
-    root.title("Color Game For FreeBSD: How to play:")
+    root.title("Color Game For Linux: How to play:")
 
     labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="How to play this game?")
     label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="You will need to type down the color of the text. Not what the text says what the color is.")
