@@ -1,5 +1,6 @@
 # import the modules 
 import tkinter
+from tkinter import*
 from tkinter import CENTER, ttk, messagebox
 from tkinter import Tk, Label, Button
 import tkinter.messagebox
@@ -8,7 +9,7 @@ import os
 from tkinter.ttk import *
 import tkinter as tk
 import sys
-from PIL import ImageTk, Image
+from tkinter.messagebox import showinfo
 
 
 
@@ -91,10 +92,46 @@ def countdown():
 # Driver Code 
 
 # create a GUI window 
-root = tkinter.Tk() 
+root = tk.Tk() 
 
 # set the title 
-root.title("Color Game For Linux 11.0!") 
+root.title("Color Game For Linux 12.0!")
+my_menu= Menu(root)
+root.config(menu=my_menu)
+def our_command2():
+    root = tkinter.Tk() 
+    root.resizable(0,0)
+    root.title("Who made this game?")
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="Who made this game?")
+    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="Jonathan Steadman has made this game.")
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
+    B1.pack()
+def our_command3():
+    root = tkinter.Tk() 
+    root.resizable(0,0)
+    root.title("When will this game end support?")
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="When will this game end support?")
+    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="This game is supported until the 13th Of August 2022!")
+    label1 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="The reason for this is because I want to move onto other projects.")
+    label2 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="Also I feel like this game is now completed.")
+
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    label1.pack(side="top", fill="x", pady=3)
+    label2.pack(side="top", fill="x", pady=3)
+
+
+    B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
+    B1.pack()
+file_menu= Menu(my_menu,background="pink",activebackground="#23d18b")
+my_menu.add_cascade(label="Information:",font=("Ubuntu",18),background="pink",activebackground="#23d18b", menu=file_menu)
+file_menu.add_command(label="Who made this game?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=our_command2) 
+file_menu.add_command(label="When will this game end support?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=our_command3) 
+
 root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 
 # set the size 
@@ -102,7 +139,7 @@ root.geometry("820x640")
 #Cant maximise the software!
 root.resizable(0,0)
 style = Style()
-Help = tkinter.Label(root, text = "Color Game For Linux 11.0!", font = ('Ubuntu', 24,"bold","underline")) 
+Help = tkinter.Label(root, text = "Color Game For Linux 12.0!", font = ('Ubuntu', 24,"bold","underline")) 
                 
 Help.pack() 
 # add a time left label 
@@ -144,7 +181,7 @@ def restart():
 def howtoplay():
     root = tkinter.Tk() 
     root.resizable(0,0)
-    root.title("Color Game For Linux: How to play:")
+    root.title("How to play?")
 
     labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="How to play this game?")
     label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="You will need to type down the color of the text. Not what the text says what the color is.")
@@ -161,15 +198,17 @@ def howtoplay():
     B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
     B1.pack()
 
+def on_closing():
+    if messagebox.askokcancel("Confirm to exit the game:", "Do you want to exit?"):
+        root.destroy()
 
 
-
-Tbutton = tkinter.Button(root,text = "Restart The Game.",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = restart)
+Tbutton = tkinter.Button(root,text = "Restart The Game",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = restart)
 Tbutton.pack(side=tk.LEFT)
 Tbutton.place(relx=0.5, rely=0.9, anchor=CENTER)
 qbutton = tkinter.Button(root,text = "How to play?",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = howtoplay)
 qbutton.pack(side=tk.LEFT)
 qbutton.place(relx=0.5, rely=0.8, anchor=CENTER)
 # start the GUI 
-
+root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop() 
