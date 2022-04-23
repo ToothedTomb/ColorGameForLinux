@@ -12,10 +12,10 @@ architectures:
 
 apps:
   yt-dlp:
-    command: bin/yt-dlp
+    command: bin/colorgameforlinux
     plugs: [home, network, network-bind, removable-media]
 
 parts:
   yt-dlp:
     plugin: python
-    source: https://github.com/yt-dlp/yt-dlp.git
+    source: git@github.com:ToothedTomb/ColorGameForLinux.git
