@@ -11,11 +11,11 @@ architectures:
   - build-on: [arm64, armhf, amd64]
 
 apps:
-  yt-dlp:
+  colorgameforlinux:
     command: bin/colorgameforlinux
     plugs: [home, network, network-bind, removable-media]
 
 parts:
-  yt-dlp:
+  colorgameforlinux:
     plugin: python
     source: git@github.com:ToothedTomb/ColorGameForLinux.git
