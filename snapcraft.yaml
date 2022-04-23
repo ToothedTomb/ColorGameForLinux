@@ -1,6 +1,5 @@
-name: ColorGameForLinux
+name: colorgameforlinux
 version: '2.10.30'
 summary: ColorGameForLinux
 description: |
   You need to pick what color the text is but be warned the text will say a different color and may trick you! Do you have what it takes to get 100 points in 90 seconds? 
-icon: gimp.png
