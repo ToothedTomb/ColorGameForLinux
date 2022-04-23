@@ -3,3 +3,19 @@ version: '2.10.30'
 summary: ColorGameForLinux
 description: |
   You need to pick what color the text is but be warned the text will say a different color and may trick you! Do you have what it takes to get 100 points in 90 seconds? 
+version: git
+grade: stable
+confinement: devmode
+base: core20
+architectures:
+  - build-on: [arm64, armhf, amd64]
+
+apps:
+  yt-dlp:
+    command: bin/yt-dlp
+    plugs: [home, network, network-bind, removable-media]
+
+parts:
+  yt-dlp:
+    plugin: python
+    source: https://github.com/yt-dlp/yt-dlp.git
