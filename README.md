@@ -2,7 +2,6 @@
 About game:
 You need to pick what colour the text is but be warned the text will say a different colour and may trick you! Do you have what it takes to get 100 points in 90 seconds? 
 Note: This game is free and open-source!
-Note: I am just experimenting snaps. So please ignore the .yaml file. 
 
 Credits:
 Jonathan Steadman - Did everything lol.
