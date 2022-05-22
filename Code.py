@@ -95,13 +95,15 @@ def countdown():
 root = tk.Tk() 
 
 # set the title 
-root.title("Color Game For Linux 12.0!")
+root.title("Color Game For Linux 13.0!")
 my_menu= Menu(root)
 root.config(menu=my_menu)
 def our_command2():
-    root = tkinter.Tk() 
+    root = tk.Toplevel()  
     root.resizable(0,0)
     root.title("Who made this game?")
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
+
 
     labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="Who made this game?")
     label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="Jonathan Steadman has made this game.")
@@ -110,9 +112,11 @@ def our_command2():
     B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
     B1.pack()
 def our_command3():
-    root = tkinter.Tk() 
+    root = tk.Toplevel()  
     root.resizable(0,0)
     root.title("When will this game end support?")
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
+
 
     labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="When will this game end support?")
     label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="This game is supported until the 13th Of August 2022!")
@@ -139,7 +143,7 @@ root.geometry("820x640")
 #Cant maximise the software!
 root.resizable(0,0)
 style = Style()
-Help = tkinter.Label(root, text = "Color Game For Linux 12.0!", font = ('Ubuntu', 24,"bold","underline")) 
+Help = tkinter.Label(root, text = "Color Game For Linux 13.0!", font = ('Ubuntu', 24,"bold","underline")) 
                 
 Help.pack() 
 # add a time left label 
@@ -179,9 +183,11 @@ def restart():
     os.execl(python, python, * sys.argv)
 
 def howtoplay():
-    root = tkinter.Tk() 
+    root = tk.Toplevel() 
     root.resizable(0,0)
     root.title("How to play?")
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
+
 
     labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="How to play this game?")
     label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="You will need to type down the color of the text. Not what the text says what the color is.")
@@ -199,8 +205,22 @@ def howtoplay():
     B1.pack()
 
 def on_closing():
-    if messagebox.askokcancel("Confirm to exit the game:", "Do you want to exit?"):
-        root.destroy()
+    root = tk.Toplevel()  
+    root.resizable(0,0)
+    root.title("Confirm to exit the game:")
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
+
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="Confirm to exit the game:")
+    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="Are you sure you want to leave this game?")
+
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    B1 = tk.Button(root, text="Yes",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.quit)
+
+    B2 = tk.Button(root, text="No",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
+    B1.pack(side=tkinter.LEFT, anchor=CENTER)
+    B2.pack(side=tkinter.RIGHT, anchor=CENTER)
 
 
 Tbutton = tkinter.Button(root,text = "Restart The Game",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = restart)
