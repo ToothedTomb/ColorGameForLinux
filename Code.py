@@ -95,11 +95,27 @@ def countdown():
 root = tk.Tk() 
 
 # set the title 
-root.title("Color Game For Linux 13.0!")
+root.title("Color Game For Linux 14.0!")
 my_menu= Menu(root)
 root.config(menu=my_menu)
-def our_command2():
+#This will be the popup to show keyboard shortcuts. 
+def KeyboardShortcuts():
     root = tk.Toplevel()  
+    root.resizable(0,0)
+    root.attributes("-topmost", True)
+    root.title("Keyboard Shortcuts.")
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
+
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="Keyboard shortcuts.")
+    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="Press the 'Escape key' to exit the game.")
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
+    B1.pack()
+def whoMadeThisGame():
+    root = tk.Toplevel()  
+    root.attributes("-topmost", True)
     root.resizable(0,0)
     root.title("Who made this game?")
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
@@ -111,8 +127,9 @@ def our_command2():
     label.pack(side="top", fill="x", pady=2)
     B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
     B1.pack()
-def our_command3():
+def WhenWillThisGameEndSupport():
     root = tk.Toplevel()  
+    root.attributes("-topmost", True)
     root.resizable(0,0)
     root.title("When will this game end support?")
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
@@ -131,19 +148,45 @@ def our_command3():
 
     B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
     B1.pack()
+
+def howtoplay():
+    root = tk.Toplevel()
+    root.attributes("-topmost", True) 
+    root.resizable(0,0)
+    root.title("How to play this game?")
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
+
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="How to play this game?")
+    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="You will need to type down the color of the text. Not what the text says what the color is.")
+    label3 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="You will need to be fast to get more points but needs to be written correctly and the right color.")
+    labelw = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="You will lose one point if you make a mistake.")
+    label4 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="Press the enter key to submit you answer.")
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    label3.pack(side="top", fill="x", pady=3)
+    labelw.pack(side="top",fill="x",pady=4)
+    label4.pack(side="top",fill="x", pady=5)
+
+
+    B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
+    B1.pack()
 file_menu= Menu(my_menu,background="pink",activebackground="#23d18b")
-my_menu.add_cascade(label="Information:",font=("Ubuntu",18),background="pink",activebackground="#23d18b", menu=file_menu)
-file_menu.add_command(label="Who made this game?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=our_command2) 
-file_menu.add_command(label="When will this game end support?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=our_command3) 
+my_menu.add_cascade(label="About:",font=("Ubuntu",18),activebackground="#23d18b", menu=file_menu)
+file_menu.add_command(label="How to play this game?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=howtoplay)
+file_menu.add_command(label="Who made this game?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=whoMadeThisGame) 
+file_menu.add_command(label="When will this game end support?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=WhenWillThisGameEndSupport)
+file_menu.add_command(label="Keyboard shortcuts.",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=KeyboardShortcuts)
+
 
 root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 
 # set the size 
-root.geometry("820x640")
+root.geometry("820x589")
 #Cant maximise the software!
 root.resizable(0,0)
 style = Style()
-Help = tkinter.Label(root, text = "Color Game For Linux 13.0!", font = ('Ubuntu', 24,"bold","underline")) 
+Help = tkinter.Label(root, text = "Color Game For Linux 14.0!", font = ('Ubuntu', 24,"bold","underline")) 
                 
 Help.pack() 
 # add a time left label 
@@ -182,30 +225,31 @@ def restart():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
-def howtoplay():
-    root = tk.Toplevel() 
+
+#Function to ask the user when they press the escape key to exit the software or not.
+def KeyPressEsc(event):
+    root = tk.Toplevel()
+    root.attributes("-topmost", True)  
+
     root.resizable(0,0)
-    root.title("How to play?")
+    root.title("Confirm to exit the game:")
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 
 
-    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="How to play this game?")
-    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="You will need to type down the color of the text. Not what the text says what the color is.")
-    label3 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="You will need to be fast to get more points but needs to be written correctly and the right color.")
-    labelw = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="You will lose one point if you make a mistake.")
-    label4 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center',text="Press the enter key to submit you answer.")
+    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="Confirm to exit the game:")
+    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="Are you sure you want to leave this game?")
+
     labelTitle.pack(side="top",fill="x",pady=1)
     label.pack(side="top", fill="x", pady=2)
-    label3.pack(side="top", fill="x", pady=3)
-    labelw.pack(side="top",fill="x",pady=4)
-    label4.pack(side="top",fill="x", pady=5)
+    B1 = tk.Button(root, text="Yes",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.quit)
 
-
-    B1 = tk.Button(root, text="Exit",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
-    B1.pack()
-
+    B2 = tk.Button(root, text="No",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = root.destroy)
+    B1.pack(side=tkinter.LEFT, anchor=CENTER)
+    B2.pack(side=tkinter.RIGHT, anchor=CENTER)
 def on_closing():
-    root = tk.Toplevel()  
+    root = tk.Toplevel()
+    root.attributes("-topmost", True)  
+
     root.resizable(0,0)
     root.title("Confirm to exit the game:")
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
@@ -223,12 +267,15 @@ def on_closing():
     B2.pack(side=tkinter.RIGHT, anchor=CENTER)
 
 
-Tbutton = tkinter.Button(root,text = "Restart The Game",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = restart)
-Tbutton.pack(side=tk.LEFT)
+root.bind('<Escape>', KeyPressEsc)
+
+
+
+Tbutton = tkinter.Button(root,text = "Restart The Game",font=("ubuntu",28),bg="pink",activebackground='#23d18b',border=16, command = restart)
 Tbutton.place(relx=0.5, rely=0.9, anchor=CENTER)
-qbutton = tkinter.Button(root,text = "How to play?",font=("ubuntu",28),bg="pink",activebackground='#23d18b', command = howtoplay)
-qbutton.pack(side=tk.LEFT)
-qbutton.place(relx=0.5, rely=0.8, anchor=CENTER)
-# start the GUI 
+
+
+#When the user press the escape key they will see a popup to exit this game.
+#When the user press the escape key the they will be able to leave the software by seeing the popup.
 root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop() 
