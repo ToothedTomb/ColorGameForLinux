@@ -95,7 +95,7 @@ def countdown():
 root = tk.Tk() 
 
 # set the title 
-root.title("Color Game For Linux 14.0!")
+root.title("Color Game For Linux 15.0!")
 my_menu= Menu(root)
 root.config(menu=my_menu)
 #This will be the popup to show keyboard shortcuts. 
@@ -131,12 +131,12 @@ def WhenWillThisGameEndSupport():
     root = tk.Toplevel()  
     root.attributes("-topmost", True)
     root.resizable(0,0)
-    root.title("When will this game end support?")
+    root.title("When did this game end support?")
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='ColorGameForLinux.png'))
 
 
-    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="When will this game end support?")
-    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="This game is supported until the 13th Of August 2022!")
+    labelTitle = ttk.Label(root,font=("Ubuntu", 26,"bold","underline"),anchor='center', text="When did this game end support?")
+    label = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="This game is no longer supported from the 15th Of August 2022!")
     label1 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="The reason for this is because I want to move onto other projects.")
     label2 = ttk.Label(root,font=("Ubuntu", 16,"bold",),anchor='center', text="Also I feel like this game is now completed.")
 
@@ -175,7 +175,7 @@ file_menu= Menu(my_menu,background="pink",activebackground="#23d18b")
 my_menu.add_cascade(label="About:",font=("Ubuntu",18),activebackground="#23d18b", menu=file_menu)
 file_menu.add_command(label="How to play this game?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=howtoplay)
 file_menu.add_command(label="Who made this game?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=whoMadeThisGame) 
-file_menu.add_command(label="When will this game end support?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=WhenWillThisGameEndSupport)
+file_menu.add_command(label="When did this game end support?",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=WhenWillThisGameEndSupport)
 file_menu.add_command(label="Keyboard shortcuts.",font=("Ubuntu",18),activebackground="#23d18b",background="pink",command=KeyboardShortcuts)
 
 
@@ -186,7 +186,7 @@ root.geometry("820x589")
 #Cant maximise the software!
 root.resizable(0,0)
 style = Style()
-Help = tkinter.Label(root, text = "Color Game For Linux 14.0!", font = ('Ubuntu', 24,"bold","underline")) 
+Help = tkinter.Label(root, text = "Color Game For Linux 15.0!", font = ('Ubuntu', 24,"bold","underline")) 
                 
 Help.pack() 
 # add a time left label 
