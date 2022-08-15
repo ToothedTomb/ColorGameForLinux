@@ -5,9 +5,9 @@ Note: This game is free and open-source!
 
 Credits:
 Jonathan Steadman - Did everything lol.
-End of life: 13th of August 2022.
+End of life: 15th of August 2022.
 
 What else do I need:
 Install Ubuntu font.
 
-![Screenshot from 2022-05-22 09-59-43](https://user-images.githubusercontent.com/52569279/169687967-7119545c-803f-4652-b85d-e3827e73b75d.png)
+![Screenshot from 2022-08-15 21-01-06](https://user-images.githubusercontent.com/52569279/184709892-681d7a9b-4b0f-4877-b006-9c98d3804f4c.png)
